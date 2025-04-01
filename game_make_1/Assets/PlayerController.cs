@@ -4,8 +4,8 @@ public class PlayerController : MonoBehaviour
 {
 
     //플레이어가 이동시 게임창을 벗어나지 않도록 Vector 최대 최소 값 설정 변수
-    float fMaxPositionX = 10.0f;
-    float fMinPositionX = -10.0f;
+    float fMaxPositionX = 8.0f;
+    float fMinPositionX = -8.0f;
 
     //플레이어가 이동할 수 있는 X좌표 저장 변수
     float fPositionX = 0.0f;
@@ -41,5 +41,15 @@ public class PlayerController : MonoBehaviour
 
         fPositionX = Mathf.Clamp(transform.position.x, fMinPositionX, fMaxPositionX);
         transform.position = new Vector3(fPositionX, transform.position.y, transform.position.z);
+    }
+
+    public void LButtonDown()
+    {
+        transform.Translate(-1, 0, 0);
+    }
+
+    public void RButtonDown()
+    {
+        transform.Translate(1, 0, 0);
     }
 }
